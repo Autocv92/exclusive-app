@@ -10,6 +10,7 @@ import { Wishlist } from "./components/Wishlist.jsx";
 import { Cart } from "./components/Cart.jsx";
 import { Checkout } from "./components/Checkout.jsx";
 import { AboutUs } from "./components/AboutUs.jsx";
+import { Contact } from "./components/Contact.jsx";
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
   {
     path: "aboutus",
     element: <AboutUs />,
+  },
+  {
+    path: "contact",
+    element: <Contact />,
   },
 ]);
 
