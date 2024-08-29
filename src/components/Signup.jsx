@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Footer } from "./Footer";
 import { Header } from "./Header";
 
@@ -44,9 +45,9 @@ export function Singup() {
               </button>
               <p className="mt-8 flex items-center justify-center gap-2">
                 Already have account?{" "}
-                <a className="font-medium underline" href="#">
+                <Link to="/login" className="font-medium underline">
                   Log in
-                </a>
+                </Link>
               </p>
             </div>
           </div>

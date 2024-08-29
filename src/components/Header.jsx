@@ -1,3 +1,5 @@
+import { Link, NavLink } from "react-router-dom";
+
 export function Header() {
   return (
     <div>
@@ -9,13 +11,12 @@ export function Header() {
               Summer Sale For All Swim Suits And Free Express Delivery - OFF
               50%!
             </p>
-            <a
-              href="#"
+            <NavLink
               className="font-display font-semibold text-white underline"
               alt="shop now"
             >
               ShopNow
-            </a>
+            </NavLink>
           </div>
           <div className="flex">
             <span className="font-display text-white">English</span>
@@ -28,16 +29,16 @@ export function Header() {
         <h1 className="font-body font-bold">Exclusive</h1>
         <ul className="flex gap-8">
           <li className="font-display">
-            <a href="#">Home</a>
+            <NavLink to="/">Home</NavLink>
           </li>
           <li className="font-display">
-            <a href="#">Contact</a>
+            <NavLink to="/contact">Contact</NavLink>
           </li>
+          <Link to="aboutus">
+            <NavLink to="/aboutus">About Us</NavLink>
+          </Link>
           <li className="font-display">
-            <a href="#">About</a>
-          </li>
-          <li className="font-display">
-            <a href="#">Sign Up</a>
+            <NavLink to="/signup">sign Up</NavLink>
           </li>
         </ul>
         <div className="flex gap-4">
@@ -49,8 +50,12 @@ export function Header() {
             />
             <img src="search.svg" className="h-6 w-6" />
           </div>
-          <img src="wishlist.svg" className="h-8 w-8" />
-          <img src="cart.svg" className="h-8 w-8" />
+          <Link to="/wishlist">
+            <img src="wishlist.svg" className="h-8 w-8" />
+          </Link>
+          <Link to="/cart">
+            <img src="cart.svg" className="h-8 w-8" />
+          </Link>
         </div>
       </div>
       <div className="border"></div>

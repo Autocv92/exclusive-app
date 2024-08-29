@@ -1,72 +1,18 @@
+import { useEffect } from "react";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+
 export function OurProducts() {
-  const productList = [
-    {
-      id: 1,
-      name: "Breed Dry Dog Food",
-      img: "product9.jfif",
-      price: 100,
-      review: 88,
-      rating: 5,
-    },
-    {
-      id: 2,
-      name: "CANON EOS DSLR Camera",
-      img: "product10.png",
-      price: 360,
-      review: 95,
-      rating: 5,
-    },
-    {
-      id: 3,
-      name: "ASUS FHD Gaming Laptop",
-      img: "product11.png",
-      price: 700,
-      review: 325,
-      rating: 5,
-    },
-    {
-      id: 4,
-      name: "Curology Product Set",
-      img: "product12.png",
-      price: 500,
-      review: 145,
-      rating: 5,
-    },
-    {
-      id: 5,
-      name: "Kids Electric Car",
-      img: "product13.png",
-      isNewProduct: true,
-      price: 700,
-      review: 65,
-      rating: 5,
-    },
-    {
-      id: 6,
-      name: "Jr. Zoom Soccer Cleats",
-      img: "product14.png",
-      price: 1160,
-      review: 35,
-      rating: 5,
-    },
-    {
-      id: 7,
-      name: "GP11 Shooter USB Gamepad",
-      img: "product15.png",
-      isNewProduct: true,
-      price: 660,
-      review: 55,
-      rating: 5,
-    },
-    {
-      id: 8,
-      name: "Quilted Satin Jacket",
-      img: "product12.png",
-      price: 660,
-      review: 55,
-      rating: 5,
-    },
-  ];
+  const [products, setProducts] = useState([]);
+  console.log(products);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/productLists")
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => setProducts(data));
+  }, []);
 
   return (
     <div className="mt-20 px-20">
@@ -92,7 +38,7 @@ export function OurProducts() {
 
       <div id="sale-product" className="mt-10">
         <div className="flex flex-wrap gap-8">
-          {productList.map((product) => {
+          {products.map((product) => {
             const { id, name, img, price, isNewProduct, review } = product;
 
             return (
@@ -106,10 +52,11 @@ export function OurProducts() {
                       New
                     </div>
                   )}
-
-                  <div className="flex h-[180px] w-[190px] items-center justify-center">
-                    <img src={img} className="h-[152px] w-[172px]" />
-                  </div>
+                  <Link to="/productdetails">
+                    <div className="flex h-[180px] w-[190px] items-center justify-center">
+                      <img src={img} className="h-[152px] w-[172px]" />
+                    </div>
+                  </Link>
                   <div className="absolute right-0 top-0 flex flex-col gap-2 p-2">
                     <i className="fa-regular fa-heart rounded-full bg-white p-2"></i>
                     <i className="fa-regular fa-eye rounded-full bg-white p-2"></i>
