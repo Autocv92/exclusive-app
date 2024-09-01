@@ -7,7 +7,6 @@ import axios from "axios";
 
 export function Cart() {
   const [cart, setCart] = useState([]);
-  // const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(function () {

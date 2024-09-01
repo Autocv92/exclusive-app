@@ -1,5 +1,4 @@
 export function CartItems({ cart }) {
-  console.log(cart);
   return (
     <div>
       <div className="mx-[10px] mb-[10px] mt-[10px] flex h-[630px] w-[900px] flex-col">

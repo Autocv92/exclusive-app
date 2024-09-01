@@ -7,6 +7,7 @@ export function OurProducts() {
   const [products, setProducts] = useState([]);
 
   const [isLoading, setIsLoading] = useState(false);
+  const [selectId, setSelectedId] = useState("23334");
   // console.log(products);
 
   useEffect(function () {
@@ -22,13 +23,15 @@ export function OurProducts() {
     cartItems();
   }, []);
 
-  const AddToCart = () => {
-    const name = products[1].name;
-    console.log(name);
+  const addCartItemsHandler = () => {
+    const payload = {
+      id: selectId,
+    };
+
     axios
-      .post("http://localhost:3000/cart", { name })
+      .post("http://localhost:3000/cart", payload)
       .then((res) => {
-        setProducts(res.data);
+        setSelectedId(res.data);
       })
       .catch((error) => {
         console.log(error);
@@ -81,7 +84,7 @@ export function OurProducts() {
                   <div className="">
                     <button
                       className="w-[175px] bg-black p-2 font-semibold text-white"
-                      onClick={() => AddToCart(id)}
+                      onClick={() => addCartItemsHandler()}
                     >
                       Add To Cart
                     </button>
