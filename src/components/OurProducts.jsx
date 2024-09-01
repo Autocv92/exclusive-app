@@ -7,27 +7,29 @@ export function OurProducts() {
   const [products, setProducts] = useState([]);
 
   const [isLoading, setIsLoading] = useState(false);
-  const [selectId, setSelectedId] = useState("23334");
+  const [selectId, setSelectedId] = useState();
   // console.log(products);
 
-  useEffect(function () {
-    async function cartItems() {
-      setIsLoading(true);
-      // setError(false);
-      const res = await axios.get("http://localhost:3000/productlists");
-      // const data = await res.json();
-      setProducts(res.data);
+  useEffect(
+    function () {
+      async function cartItems() {
+        setIsLoading(true);
+        // setError(false);
+        const res = await axios.get("http://localhost:3000/productlists");
+        // const data = await res.json();
+        setProducts(res.data);
 
-      setIsLoading(false);
-    }
-    cartItems();
-  }, []);
+        setIsLoading(false);
+      }
+      cartItems();
+    },
+    [selectId],
+  );
 
-  const addCartItemsHandler = () => {
+  const addCartItemsHandler = (selectId) => {
     const payload = {
       id: selectId,
     };
-
     axios
       .post("http://localhost:3000/cart", payload)
       .then((res) => {
@@ -84,7 +86,7 @@ export function OurProducts() {
                   <div className="">
                     <button
                       className="w-[175px] bg-black p-2 font-semibold text-white"
-                      onClick={() => addCartItemsHandler()}
+                      onClick={() => addCartItemsHandler(id)}
                     >
                       Add To Cart
                     </button>
