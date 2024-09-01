@@ -11,7 +11,11 @@ export function ProductItem({
   isWishlistProduct,
 }) {
   return (
-    <div id="sale-product" key={id} className="h-[350px] w-[270px]">
+    <div
+      id="sale-product"
+      key={id}
+      className="h-[350px] w-[270px] bg-slate-500"
+    >
       <div
         id="product-img"
         className="relative flex h-[250px] items-center justify-center bg-neutral-100"

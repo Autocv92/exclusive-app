@@ -12,6 +12,7 @@ import { Checkout } from "./components/Checkout.jsx";
 import { AboutUs } from "./components/AboutUs.jsx";
 import { Contact } from "./components/Contact.jsx";
 import { ProductDetails } from "./pages/ProductDetails.jsx";
+import { CartItems } from "./components/CartItems.jsx";
 
 const router = createBrowserRouter([
   {
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
   {
     path: "productdetails",
     element: <ProductDetails />,
+  },
+  {
+    path: "cartitems",
+    element: <CartItems />,
   },
 ]);
 

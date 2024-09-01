@@ -1,18 +1,39 @@
+import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
 export function OurProducts() {
   const [products, setProducts] = useState([]);
-  console.log(products);
 
-  useEffect(() => {
-    fetch("http://localhost:3000/productLists")
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => setProducts(data));
+  const [isLoading, setIsLoading] = useState(false);
+  // console.log(products);
+
+  useEffect(function () {
+    async function cartItems() {
+      setIsLoading(true);
+      // setError(false);
+      const res = await axios.get("http://localhost:3000/productlists");
+      // const data = await res.json();
+      setProducts(res.data);
+
+      setIsLoading(false);
+    }
+    cartItems();
   }, []);
+
+  const AddToCart = () => {
+    const name = products[1].name;
+    console.log(name);
+    axios
+      .post("http://localhost:3000/cart", { name })
+      .then((res) => {
+        setProducts(res.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   return (
     <div className="mt-20 px-20">
@@ -45,7 +66,7 @@ export function OurProducts() {
               <div id="sale-product" key={id} className="h-[350px] w-[270px]">
                 <div
                   id="product-img"
-                  className="relative flex h-[250px] items-center justify-center bg-neutral-100"
+                  className="relative flex h-[250px] flex-col items-center justify-center bg-neutral-100"
                 >
                   {isNewProduct && (
                     <div className="absolute left-0 top-0 m-2 rounded-md bg-green-400 px-2 py-1 text-white">
@@ -53,10 +74,19 @@ export function OurProducts() {
                     </div>
                   )}
                   <Link to="/productdetails">
-                    <div className="flex h-[180px] w-[190px] items-center justify-center">
+                    <div className="flex h-[180px] w-[190px] flex-col items-center justify-center">
                       <img src={img} className="h-[152px] w-[172px]" />
                     </div>
                   </Link>
+                  <div className="">
+                    <button
+                      className="w-[175px] bg-black p-2 font-semibold text-white"
+                      onClick={() => AddToCart(id)}
+                    >
+                      Add To Cart
+                    </button>
+                  </div>
+
                   <div className="absolute right-0 top-0 flex flex-col gap-2 p-2">
                     <i className="fa-regular fa-heart rounded-full bg-white p-2"></i>
                     <i className="fa-regular fa-eye rounded-full bg-white p-2"></i>
