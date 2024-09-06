@@ -1,0 +1,134 @@
+{
+  "productlists": [
+    {
+      "id": "1",
+      "name": "Breed Dry Dog Food",
+      "img": "product9.jfif",
+      "price": 100,
+      "review": 88,
+      "rating": 5
+    },
+    {
+      "id": "2",
+      "name": "CANON EOS DSLR Camera",
+      "img": "product10.png",
+      "price": 360,
+      "review": 95,
+      "rating": 5
+    },
+    {
+      "id": "3",
+      "name": "ASUS FHD Gaming Laptop",
+      "img": "product11.png",
+      "price": 700,
+      "review": 325,
+      "rating": 5
+    },
+    {
+      "id": "4",
+      "name": "Curology Product Set",
+      "img": "product12.png",
+      "price": 500,
+      "review": 145,
+      "rating": 5
+    },
+    {
+      "id": "5",
+      "name": "Kids Electric Car",
+      "img": "product13.png",
+      "isNewProduct": true,
+      "price": 700,
+      "review": 65,
+      "rating": 5
+    },
+    {
+      "id": "6",
+      "name": "Jr. Zoom Soccer Cleats",
+      "img": "product14.png",
+      "price": 1160,
+      "review": 35,
+      "rating": 5
+    },
+    {
+      "id": "7",
+      "name": "GP11 Shooter USB Gamepad",
+      "img": "product15.png",
+      "isNewProduct": true,
+      "price": 660,
+      "review": 55,
+      "rating": 5
+    },
+    {
+      "id": "8",
+      "name": "Quilted Satin Jacket",
+      "img": "product12.png",
+      "price": 660,
+      "review": 55,
+      "rating": 5
+    }
+  ],
+  "cart": [
+    {
+      "id": "8",
+      "name": "Quilted Satin Jacket",
+      "img": "product12.png",
+      "price": 660,
+      "review": 55,
+      "rating": 5
+    }
+  ],
+
+  "wishlist": [
+    {
+      "id": "8",
+      "name": "Quilted Satin Jacket",
+      "img": "product12.png",
+      "price": 660,
+      "review": 55,
+      "rating": 5
+    }
+  ],
+
+  "fleshsale": [
+    {
+      "id": "1",
+      "name": "HAVIT HV-G92 Gamepad",
+      "img": "product1.png",
+      "price": 160,
+      "discountInPercentage": 40,
+      "discountedPrice": 120,
+      "review": 88,
+      "rating": 5
+    },
+    {
+      "id": "2",
+      "name": "AK-900 Wired Keyboard",
+      "img": "product2.png",
+      "price": 1160,
+      "discountInPercentage": 35,
+      "discountedPrice": 960,
+      "review": 75,
+      "rating": 5
+    },
+    {
+      "id": "3",
+      "name": "IPS LCD Gaming Monitor",
+      "img": "product3.png",
+      "price": 400,
+      "discountInPercentage": 30,
+      "discountedPrice": 370,
+      "review": 99,
+      "rating": 5
+    },
+    {
+      "id": "4",
+      "name": "S-Series Comfort Chair ",
+      "img": "product4.png",
+      "price": 400,
+      "discountInPercentage": 25,
+      "discountedPrice": 375,
+      "review": 75,
+      "rating": 5
+    }
+  ]
+}

@@ -1,10 +1,6 @@
-import { Footer } from "./Footer";
-import { Header } from "./Header";
-
 export function Checkout() {
   return (
     <div className="">
-      <Header />
       <div className="mx-20 mb-36 mt-20">
         <h1 className="font-body text-3xl font-semibold">Billing Details</h1>
         <div className="flex gap-[173px]">
@@ -193,7 +189,6 @@ export function Checkout() {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

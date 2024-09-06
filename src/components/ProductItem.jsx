@@ -11,7 +11,11 @@ export function ProductItem({
   isWishlistProduct,
 }) {
   return (
-    <div id="sale-product" key={id} className="h-[350px] w-[270px]">
+    <div
+      id="sale-product"
+      key={id}
+      className="h-[350px] w-[270px] bg-slate-500"
+    >
       <div
         id="product-img"
         className="relative flex h-[250px] items-center justify-center bg-neutral-100"
@@ -27,7 +31,7 @@ export function ProductItem({
           </div>
           <button className="flex h-[41px] w-full items-center justify-center gap-1 bg-black px-20 py-2 text-white">
             <i className="fa-solid fa-cart-shopping"></i>
-            <span className="font-display text-xs">Add To Cart</span>
+            <span className="w-[270px] font-display text-xs">Add To Cart</span>
           </button>
         </div>
 

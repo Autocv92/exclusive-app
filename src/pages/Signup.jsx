@@ -1,10 +1,8 @@
-import { Footer } from "./Footer";
-import { Header } from "./Header";
+import { Link } from "react-router-dom";
 
 export function Singup() {
   return (
     <div className="">
-      <Header />
       <div className="mb-36 mt-16 flex gap-4">
         <div className="h-[781px] w-[805px] border bg-slate-400">
           <img
@@ -44,15 +42,14 @@ export function Singup() {
               </button>
               <p className="mt-8 flex items-center justify-center gap-2">
                 Already have account?{" "}
-                <a className="font-medium underline" href="#">
+                <Link to="/login" className="font-medium underline">
                   Log in
-                </a>
+                </Link>
               </p>
             </div>
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }
