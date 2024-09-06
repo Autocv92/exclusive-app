@@ -32,7 +32,14 @@ export function Header() {
             <NavLink to="/">Home</NavLink>
           </li>
           <li className="font-display">
-            <NavLink to="/contact">Contact</NavLink>
+            <NavLink
+              to="/contact"
+              className={({ isActive }) => {
+                isActive ? "text-red-500" : "text-black";
+              }}
+            >
+              Contact
+            </NavLink>
           </li>
           <Link to="aboutus">
             <NavLink to="/aboutus">About Us</NavLink>

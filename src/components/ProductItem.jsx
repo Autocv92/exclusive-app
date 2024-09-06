@@ -31,7 +31,7 @@ export function ProductItem({
           </div>
           <button className="flex h-[41px] w-full items-center justify-center gap-1 bg-black px-20 py-2 text-white">
             <i className="fa-solid fa-cart-shopping"></i>
-            <span className="font-display text-xs">Add To Cart</span>
+            <span className="w-[270px] font-display text-xs">Add To Cart</span>
           </button>
         </div>
 

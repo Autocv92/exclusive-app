@@ -1,11 +1,8 @@
 import { Link } from "react-router-dom";
-import { Footer } from "./Footer";
-import { Header } from "./Header";
 
 export function Singup() {
   return (
     <div className="">
-      <Header />
       <div className="mb-36 mt-16 flex gap-4">
         <div className="h-[781px] w-[805px] border bg-slate-400">
           <img
@@ -53,7 +50,6 @@ export function Singup() {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

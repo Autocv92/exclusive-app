@@ -1,10 +1,9 @@
-import { Footer } from "./Footer";
-import { Header } from "./Header";
+// import { Footer } from "./Footer";
+// import { Header } from "./Header";
 
 export function AboutUs() {
   return (
     <div className="h-full">
-      <Header />
       {/*  */}
 
       <div className="mb-[50px] mt-[50px] flex h-[609px] w-full justify-between">
@@ -263,8 +262,6 @@ export function AboutUs() {
           </p>
         </div>
       </div>
-
-      <Footer />
     </div>
   );
 }

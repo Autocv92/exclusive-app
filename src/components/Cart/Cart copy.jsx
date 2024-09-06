@@ -1,10 +1,6 @@
-import { Footer } from "./Footer";
-import { Header } from "./Header";
-
 export function Cart() {
   return (
     <div>
-      <Header />
       <div className="mx-20 mb-36 mt-20 border">
         <div id="price-details" className="flex flex-col gap-10">
           <div className="flex h-[72px] items-center justify-between rounded border px-10 shadow">
@@ -30,7 +26,6 @@ export function Cart() {
           Coupon & Cart Total
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

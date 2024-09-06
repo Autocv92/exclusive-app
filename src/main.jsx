@@ -1,60 +1,84 @@
-import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
-import Home from "./Home.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
-import ErrorPage from "./components/error-page.jsx";
-import { Singup } from "./components/Signup.jsx";
-import { Login } from "./components/Login.jsx";
-import { Wishlist } from "./components/Wishlist.jsx";
-import { Cart } from "./components/Cart.jsx";
+import React from "react";
+import Layout from "./components/Layout/Layout.jsx";
+import { Header } from "./components/Header/Header.jsx";
+import ErrorPage from "./components/Error/error-page.jsx";
+import { Singup } from "./pages/Signup.jsx";
+import { Login } from "./pages/Login.jsx";
+import Wishlist, {
+  loader as wishlistLoader,
+} from "./components/Whishlist/Wishlist.jsx";
+import { Cart } from "./components/Cart/Cart.jsx";
 import { Checkout } from "./components/Checkout.jsx";
-import { AboutUs } from "./components/AboutUs.jsx";
-import { Contact } from "./components/Contact.jsx";
-import { ProductDetails } from "./pages/ProductDetails.jsx";
-import { CartItems } from "./components/CartItems.jsx";
+import { AboutUs } from "./pages/AboutUs.jsx";
+import { Contact } from "./pages/Contact.jsx";
+
+import { OurProducts } from "./components/OurProducts.jsx";
+import { CartItems } from "./components/Cart/CartItems.jsx";
+import Home from "./pages/Home.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
+    element: <Layout />,
     errorElement: <ErrorPage />,
-  },
-  {
-    path: "signup",
-    element: <Singup />,
-  },
-  {
-    path: "login",
-    element: <Login />,
-  },
-  {
-    path: "wishlist",
-    element: <Wishlist />,
-  },
-  {
-    path: "cart",
-    element: <Cart />,
-  },
-  {
-    path: "checkout",
-    element: <Checkout />,
-  },
-  {
-    path: "aboutus",
-    element: <AboutUs />,
-  },
-  {
-    path: "contact",
-    element: <Contact />,
-  },
-  {
-    path: "productdetails",
-    element: <ProductDetails />,
-  },
-  {
-    path: "cartitems",
-    element: <CartItems />,
+    children: [
+      {
+        errorElement: <Home />,
+        path: "/",
+        element: <ErrorPage />,
+      },
+      {
+        path: "",
+        element: <Header />,
+      },
+      {
+        path: "signup",
+        element: <Singup />,
+      },
+      {
+        path: "login",
+        element: <Login />,
+      },
+      {
+        path: "wishlist",
+        element: <Wishlist />,
+        loader: wishlistLoader,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "cart",
+        element: <Cart />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "checkout",
+        element: <Checkout />,
+      },
+      {
+        path: "aboutus",
+        element: <AboutUs />,
+      },
+      {
+        path: "contact",
+        element: <Contact />,
+      },
+      // {
+      //   path: "productdetails",
+      //   element: <ProductDetails />,
+      // },
+      {
+        path: "cartitems",
+        element: <CartItems />,
+      },
+      {
+        path: "ourproduct",
+        element: <OurProducts />,
+        errorElement: <ErrorPage />,
+      },
+    ],
   },
 ]);
 

@@ -69,13 +69,16 @@
   ],
   "cart": [
     {
-      "id": "1",
-      "name": "Breed Dry Dog Food",
-      "img": "product9.jfif",
-      "price": 100,
-      "review": 88,
+      "id": "8",
+      "name": "Quilted Satin Jacket",
+      "img": "product12.png",
+      "price": 660,
+      "review": 55,
       "rating": 5
-    },
+    }
+  ],
+
+  "wishlist": [
     {
       "id": "8",
       "name": "Quilted Satin Jacket",
@@ -85,13 +88,46 @@
       "rating": 5
     }
   ],
-  "wishlist": [
+
+  "fleshsale": [
     {
       "id": "1",
-      "name": "Breed Dry Dog Food",
-      "img": "product9.jfif",
-      "price": 100,
+      "name": "HAVIT HV-G92 Gamepad",
+      "img": "product1.png",
+      "price": 160,
+      "discountInPercentage": 40,
+      "discountedPrice": 120,
       "review": 88,
+      "rating": 5
+    },
+    {
+      "id": "2",
+      "name": "AK-900 Wired Keyboard",
+      "img": "product2.png",
+      "price": 1160,
+      "discountInPercentage": 35,
+      "discountedPrice": 960,
+      "review": 75,
+      "rating": 5
+    },
+    {
+      "id": "3",
+      "name": "IPS LCD Gaming Monitor",
+      "img": "product3.png",
+      "price": 400,
+      "discountInPercentage": 30,
+      "discountedPrice": 370,
+      "review": 99,
+      "rating": 5
+    },
+    {
+      "id": "4",
+      "name": "S-Series Comfort Chair ",
+      "img": "product4.png",
+      "price": 400,
+      "discountInPercentage": 25,
+      "discountedPrice": 375,
+      "review": 75,
       "rating": 5
     }
   ]

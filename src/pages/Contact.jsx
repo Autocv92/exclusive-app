@@ -1,10 +1,6 @@
-import { Footer } from "./Footer";
-import { Header } from "./Header";
-
 export function Contact() {
   return (
     <div>
-      <Header />
       <div className="mb-[50px] mt-[50px] flex gap-[32px]">
         {/* left */}
         <div className="ml-[135px] h-[457] w-[340px] rounded-[4px] border-[2px] bg-white">
@@ -91,7 +87,6 @@ export function Contact() {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }
