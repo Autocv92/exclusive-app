@@ -1,7 +1,10 @@
 import { NavLink, useNavigate } from "react-router-dom";
+import { useCart } from "../../context/cartContext";
 
 export function Header() {
   const navigate = useNavigate();
+  const { cart } = useCart();
+  console.log(cart.length);
   const myProfileHandler = () => {
     navigate("/myprofile");
   };
@@ -111,7 +114,7 @@ export function Header() {
           >
             <img src="cart.svg" className="h-8 w-8" />
             <span className="absolute right-[118px] top-[-8px] h-[18px] w-[18px] rounded-full bg-red-500 text-center text-[14px] text-white">
-              1
+              {cart.length}
             </span>
           </NavLink>
         </div>
