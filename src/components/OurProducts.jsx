@@ -5,12 +5,14 @@ import { useState } from "react";
 import ErrorMessage from "./Error/ErrorMessage.jsx";
 import { Loader } from "./Loader/Loader.jsx";
 import OurProductsList from "./OurProductsList.jsx";
+import { useCart } from "../context/cartContext.jsx";
 
 export function OurProducts() {
   const [products, setProducts] = useState([]);
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [selectId, setSelectedId] = useState();
+  const { addCartItemsHandler } = useCart();
   // console.log(products);
 
   useEffect(
@@ -37,26 +39,6 @@ export function OurProducts() {
     },
     [selectId],
   );
-
-  // add products in Cart Items
-
-  const addCartItemsHandler = (selectId, name, img) => {
-    const payload = {
-      id: selectId,
-      name: name,
-      img: img,
-    };
-    axios
-      .post("http://localhost:3000/cart", payload)
-      .then((res) => {
-        setSelectedId(res.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-
-  // add products in Cart Items
 
   const addToWishList = (selectId, name, img) => {
     const payload = {

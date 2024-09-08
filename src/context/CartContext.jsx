@@ -20,12 +20,38 @@ function CartProvider({ children }) {
   }, []);
 
   async function deleteHandler(id) {
-    const res = await axios.delete(`http://localhost:3000/cart/${id}`);
-    setCart(res.data);
+    try {
+      const res = await axios.delete(`http://localhost:3000/cart/${id}`);
+      if (res.status === 200) {
+        const cartData = cart.filter((item) => item.id !== id);
+        setCart(cartData);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function addCartItemsHandler(selectId, name, img) {
+    const payload = {
+      id: selectId,
+      name: name,
+      img: img,
+    };
+
+    try {
+      const res = await axios.post("http://localhost:3000/cart", payload);
+      if (res.status === 201) {
+        setCart([...cart, res.data]);
+      }
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (
-    <CartContext.Provider value={{ cart, isLoading, deleteHandler }}>
+    <CartContext.Provider
+      value={{ cart, isLoading, deleteHandler, addCartItemsHandler }}
+    >
       {children}
     </CartContext.Provider>
   );
