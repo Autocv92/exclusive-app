@@ -30,8 +30,11 @@ export function Header() {
         </div>
       </div>
       {/* Header */}
-      <div className="mb-2 mt-4 flex h-9 items-center justify-between px-32">
-        <h1 className="font-body font-bold">Exclusive</h1>
+      <div className="relative mb-2 mt-4 flex h-9 items-center justify-between px-32">
+        <NavLink to="/">
+          <h1 className="font-body font-bold">Exclusive</h1>
+        </NavLink>
+
         <ul className="flex gap-8">
           <li className="font-display">
             <NavLink
@@ -107,6 +110,9 @@ export function Header() {
             }
           >
             <img src="cart.svg" className="h-8 w-8" />
+            <span className="absolute right-[118px] top-[-5px] h-[18px] w-[18px] rounded-full bg-red-500 text-center text-[14px] text-white">
+              1
+            </span>
           </NavLink>
         </div>
       </div>
