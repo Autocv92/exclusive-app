@@ -1,7 +1,7 @@
 // import { ProductItem } from "../ProductItem";
 
 import { useLoaderData, useNavigate } from "react-router-dom";
-import { getWishlist } from "../../apiecommerce/apiApp";
+import { getWishlist } from "../../apiecommerce/apiWishlist";
 import WishlistItems from "./WishlistItems";
 
 function Wishlist() {

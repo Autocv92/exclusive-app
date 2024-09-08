@@ -1,5 +1,8 @@
+import { useNavigate } from "react-router-dom";
+
 /* eslint-disable react/prop-types */
-export function CartItems({ cart }) {
+export function CartItems({ cart, DeleteHandler }) {
+  const navigate = useNavigate();
   return (
     <div className="flex h-[full] w-[1000px]">
       <div className="mx-[10px] mb-[10px] mt-[10px] flex h-[630px] w-[700px] flex-col">
@@ -44,7 +47,12 @@ export function CartItems({ cart }) {
                       </div>
                       <div className="text-green-500">SAVE FOR LATER</div>
                       <div>
-                        <span className="text-red-500">REMOVE</span>
+                        <span
+                          className="text-red-500"
+                          onClick={() => DeleteHandler(id)}
+                        >
+                          REMOVE
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -54,7 +62,12 @@ export function CartItems({ cart }) {
           </div>
         </div>
         <div className="flex h-[100px] w-[700px] items-center justify-around bg-white shadow-md">
-          <span className="rounded-lg bg-red-400 p-3">PLACE ORDER</span>
+          <span
+            className="rounded-lg bg-red-400 p-3"
+            onClick={() => navigate("/order")}
+          >
+            PLACE ORDER
+          </span>
         </div>
       </div>
 

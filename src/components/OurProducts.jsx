@@ -56,6 +56,24 @@ export function OurProducts() {
       });
   };
 
+  // add products in Cart Items
+
+  const addToWishList = (selectId, name, img) => {
+    const payload = {
+      id: selectId,
+      name: name,
+      img: img,
+    };
+    axios
+      .post("http://localhost:3000/wishlist", payload)
+      .then((res) => {
+        setSelectedId(res.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <div className="mt-20 px-20">
       {isLoading && <Loader />}
@@ -96,6 +114,7 @@ export function OurProducts() {
                   >
                     <OurProductsList
                       addCartItemsHandler={addCartItemsHandler}
+                      addToWishList={addToWishList}
                       product={product}
                     />
                   </div>

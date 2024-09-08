@@ -116,7 +116,10 @@ export function FlashSale() {
                     -{discountInPercentage}%
                   </div>
                   <div className="flex h-[180px] w-[190px] items-center justify-center">
-                    <img src={img} className="h-[152px] w-[172px]" />
+                    <img
+                      src={img}
+                      className="h-[152px] w-[172px] translate-x-2"
+                    />
                   </div>
                   <div className="absolute right-0 top-0 flex flex-col gap-2 p-2">
                     <i className="fa-regular fa-heart rounded-full bg-white p-2"></i>
