@@ -1,6 +1,11 @@
-import { Link, NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 export function Header() {
+  const navigate = useNavigate();
+  const MyProfileHandler = () => {
+    navigate("/myprofile");
+  };
+
   return (
     <div>
       {/* Top Header */}
@@ -29,40 +34,80 @@ export function Header() {
         <h1 className="font-body font-bold">Exclusive</h1>
         <ul className="flex gap-8">
           <li className="font-display">
-            <NavLink to="/">Home</NavLink>
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                isActive ? "border-b-2 border-red-500 text-red-500" : "bg-white"
+              }
+            >
+              Home
+            </NavLink>
           </li>
           <li className="font-display">
             <NavLink
               to="/contact"
-              className={({ isActive }) => {
-                isActive ? "text-red-500" : "text-black";
-              }}
+              className={({ isActive }) =>
+                isActive ? "border-b-2 border-red-500 text-red-500" : "bg-white"
+              }
             >
               Contact
             </NavLink>
           </li>
-          <Link to="aboutus">
-            <NavLink to="/aboutus">About Us</NavLink>
-          </Link>
+          <li to="aboutus">
+            <NavLink
+              to="/aboutus"
+              className={({ isActive }) =>
+                isActive ? "border-b-2 border-red-500 text-red-500" : "bg-white"
+              }
+            >
+              About Us
+            </NavLink>
+          </li>
           <li className="font-display">
-            <NavLink to="/signup">sign Up</NavLink>
+            <NavLink
+              to="/signup"
+              className={({ isActive }) =>
+                isActive ? "border-b-2 border-red-500 text-red-500" : "bg-white"
+              }
+            >
+              sign Up
+            </NavLink>
           </li>
         </ul>
         <div className="flex gap-4">
-          <div className="flex gap-2 bg-neutral-100 px-2 py-1">
+          <div className="flex items-center justify-center gap-2">
             <input
               type="text"
-              className="bg-neutral-100 font-display text-xs"
-              placeholder="What are you looking for?"
+              className="rounded-full border-2 p-1 outline-none focus:border-blue-500"
+              placeholder="Search ....."
             />
-            <img src="search.svg" className="h-6 w-6" />
+            <img src="search.svg" className="ml-[-40px] h-6 w-6" />
           </div>
-          <Link to="/wishlist">
+
+          <NavLink
+            onMouseOver={() => MyProfileHandler()}
+            className={({ isActive }) =>
+              isActive ? "text-red-500" : "bg-white"
+            }
+          >
+            <i className="fa-solid fa-user mt-1 text-center text-[24px]"></i>
+          </NavLink>
+          <NavLink
+            to="/wishlist"
+            className={({ isActive }) =>
+              isActive ? "text-red-500" : "bg-white"
+            }
+          >
             <img src="wishlist.svg" className="h-8 w-8" />
-          </Link>
-          <Link to="/cart">
+          </NavLink>
+          <NavLink
+            to="/cart"
+            className={({ isActive }) =>
+              isActive ? "text-red-500" : "bg-white"
+            }
+          >
             <img src="cart.svg" className="h-8 w-8" />
-          </Link>
+          </NavLink>
         </div>
       </div>
       <div className="border"></div>

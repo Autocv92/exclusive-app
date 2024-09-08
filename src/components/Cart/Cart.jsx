@@ -22,6 +22,12 @@ export function Cart() {
     cartItems();
   }, []);
 
+  async function DeleteHandler(id) {
+    const res = await axios.delete(`http://localhost:3000/cart/${id}`);
+    setCart(res.data);
+    navigate("/");
+  }
+
   return (
     <div>
       <button
@@ -35,7 +41,7 @@ export function Cart() {
           <Loader />
         ) : (
           <>
-            <CartItems cart={cart} />
+            <CartItems cart={cart} DeleteHandler={DeleteHandler} />
           </>
         )}
       </div>

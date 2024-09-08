@@ -67,28 +67,19 @@
       "rating": 5
     }
   ],
-  "cart": [
-    {
-      "id": "8",
-      "name": "Quilted Satin Jacket",
-      "img": "product12.png",
-      "price": 660,
-      "review": 55,
-      "rating": 5
-    }
-  ],
-
+  "cart": [],
   "wishlist": [
     {
-      "id": "8",
-      "name": "Quilted Satin Jacket",
-      "img": "product12.png",
-      "price": 660,
-      "review": 55,
-      "rating": 5
+      "id": "1",
+      "name": "Breed Dry Dog Food",
+      "img": "product9.jfif"
+    },
+    {
+      "id": "2",
+      "name": "CANON EOS DSLR Camera",
+      "img": "product10.png"
     }
   ],
-
   "fleshsale": [
     {
       "id": "1",

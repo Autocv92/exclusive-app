@@ -18,6 +18,8 @@ import { Contact } from "./pages/Contact.jsx";
 import { OurProducts } from "./components/OurProducts.jsx";
 import { CartItems } from "./components/Cart/CartItems.jsx";
 import Home from "./pages/Home.jsx";
+import MyProfile from "./pages/MyProfile.jsx";
+import Order from "./components/Order/Order.jsx";
 
 const router = createBrowserRouter([
   {
@@ -77,6 +79,15 @@ const router = createBrowserRouter([
         path: "ourproduct",
         element: <OurProducts />,
         errorElement: <ErrorPage />,
+      },
+      {
+        path: "myprofile",
+        element: <MyProfile />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "order",
+        element: <Order />,
       },
     ],
   },

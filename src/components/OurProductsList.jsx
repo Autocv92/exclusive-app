@@ -2,7 +2,11 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 
-export default function OurProductsList({ addCartItemsHandler, product }) {
+export default function OurProductsList({
+  addCartItemsHandler,
+  product,
+  addToWishList,
+}) {
   const { id, name, img, price, isNewProduct, review } = product;
 
   return (
@@ -30,9 +34,12 @@ export default function OurProductsList({ addCartItemsHandler, product }) {
           </button>
         </div>
 
-        <div className="absolute right-0 top-0 flex flex-col gap-2 p-2">
+        <div
+          className="absolute right-0 top-0 flex flex-col gap-2 p-2"
+          onClick={() => addToWishList(id, name, img)}
+        >
           <i className="fa-regular fa-heart rounded-full bg-white p-2"></i>
-          <i className="fa-regular fa-eye rounded-full bg-white p-2"></i>
+          {/* <i className="fa-regular fa-eye rounded-full bg-white p-2"></i> */}
         </div>
       </div>
       <div id="product-details" className="mt-2">
