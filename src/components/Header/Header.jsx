@@ -2,7 +2,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 
 export function Header() {
   const navigate = useNavigate();
-  const MyProfileHandler = () => {
+  const myProfileHandler = () => {
     navigate("/myprofile");
   };
 
@@ -88,7 +88,7 @@ export function Header() {
           </div>
 
           <NavLink
-            onMouseOver={() => MyProfileHandler()}
+            onMouseOver={() => myProfileHandler()}
             className={({ isActive }) =>
               isActive ? "text-red-500" : "bg-white"
             }
@@ -110,7 +110,7 @@ export function Header() {
             }
           >
             <img src="cart.svg" className="h-8 w-8" />
-            <span className="absolute right-[118px] top-[-5px] h-[18px] w-[18px] rounded-full bg-red-500 text-center text-[14px] text-white">
+            <span className="absolute right-[118px] top-[-8px] h-[18px] w-[18px] rounded-full bg-red-500 text-center text-[14px] text-white">
               1
             </span>
           </NavLink>

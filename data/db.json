@@ -67,32 +67,23 @@
       "rating": 5
     }
   ],
-  "cart": [],
+  "cart": [
+    {
+      "id": "1",
+      "name": "Breed Dry Dog Food",
+      "img": "product9.jfif"
+    },
+    {
+      "id": "2",
+      "name": "CANON EOS DSLR Camera",
+      "img": "product10.png"
+    }
+  ],
   "wishlist": [
     {
-      "id": "1",
-      "name": "Breed Dry Dog Food",
-      "img": "product9.jfif"
-    },
-    {
       "id": "2",
       "name": "CANON EOS DSLR Camera",
       "img": "product10.png"
-    },
-    {
-      "id": "1",
-      "name": "Breed Dry Dog Food",
-      "img": "product9.jfif"
-    },
-    {
-      "id": "2",
-      "name": "CANON EOS DSLR Camera",
-      "img": "product10.png"
-    },
-    {
-      "id": "3",
-      "name": "ASUS FHD Gaming Laptop",
-      "img": "product11.png"
     }
   ],
   "fleshsale": [

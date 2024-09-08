@@ -1,7 +1,10 @@
-import { useNavigate } from "react-router-dom";
-
 /* eslint-disable react/prop-types */
-export function CartItems({ cart, DeleteHandler }) {
+
+import { useNavigate } from "react-router-dom";
+import { useCart } from "../../context/cartContext";
+
+export function CartItems() {
+  const { cart, deleteHandler } = useCart();
   const navigate = useNavigate();
   return (
     <div className="flex h-[full] w-[1000px]">
@@ -49,7 +52,7 @@ export function CartItems({ cart, DeleteHandler }) {
                       <div>
                         <span
                           className="text-red-500"
-                          onClick={() => DeleteHandler(id)}
+                          onClick={() => deleteHandler(id)}
                         >
                           REMOVE
                         </span>
