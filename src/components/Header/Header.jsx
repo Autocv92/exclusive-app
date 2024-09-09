@@ -4,7 +4,6 @@ import { useCart } from "../../context/cartContext";
 export function Header() {
   const navigate = useNavigate();
   const { cart } = useCart();
-  console.log(cart.length);
   const myProfileHandler = () => {
     navigate("/myprofile");
   };

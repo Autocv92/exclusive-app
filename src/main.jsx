@@ -23,6 +23,8 @@ import Order from "./components/Order/Order.jsx";
 import { CartProvider } from "./context/cartContext.jsx";
 import React from "react";
 import { ProductDetails } from "./components/ProductDetails.jsx";
+import { TodoApp } from "./todo/TodoApp.jsx";
+import { TodoProvider } from "./todo/TodoContext.jsx";
 
 const router = createBrowserRouter([
   {
@@ -93,6 +95,10 @@ const router = createBrowserRouter([
         path: "order",
         element: <Order />,
       },
+      {
+        path: "todo",
+        element: <TodoApp />,
+      },
     ],
   },
 ]);
@@ -100,7 +106,9 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
   <CartProvider>
     <React.StrictMode>
-      <RouterProvider router={router} />
+      <TodoProvider>
+        <RouterProvider router={router} />
+      </TodoProvider>
     </React.StrictMode>
   </CartProvider>,
 );
