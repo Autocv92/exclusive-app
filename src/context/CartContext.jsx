@@ -36,6 +36,7 @@ function CartProvider({ children }) {
         cart,
         isLoading,
         deleteHandler,
+        setCart,
       }}
     >
       {children}
