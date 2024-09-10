@@ -23,6 +23,7 @@ import Order from "./components/Order/Order.jsx";
 import { CartProvider } from "./context/cartContext.jsx";
 import React from "react";
 import { ProductDetails } from "./components/ProductDetails.jsx";
+import { OurProductsProvider } from "./context/OurProductsContext.jsx";
 
 const router = createBrowserRouter([
   {
@@ -99,8 +100,10 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <CartProvider>
-    <React.StrictMode>
-      <RouterProvider router={router} />
-    </React.StrictMode>
+    <OurProductsProvider>
+      <React.StrictMode>
+        <RouterProvider router={router} />
+      </React.StrictMode>
+    </OurProductsProvider>
   </CartProvider>,
 );

@@ -1,12 +1,12 @@
 // import React from 'react'
 
 import { Link } from "react-router-dom";
-import { useCart } from "../context/cartContext";
+import { useOurProducts } from "../context/OurProductsContext";
 /* eslint-disable react/prop-types */
-export default function OurProductsList() {
-  const { addCartItemsHandler, products, addToWishList } = useCart();
+export function OurProductsList() {
+  //  Step 3 . Consume the values
 
-  console.log(products);
+  const { products, addCartItemsHandler, addToWishList } = useOurProducts();
 
   return (
     <div className="flex flex-wrap gap-8">

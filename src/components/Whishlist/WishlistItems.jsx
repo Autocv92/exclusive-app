@@ -8,7 +8,7 @@ const WishlistItems = ({ wishlistItems }) => {
       id="best-selling-product"
       className="bg-white-100 relative mt-10 h-[280px] w-[270px]"
     >
-      <div className="flex gap-8">
+      <div className="flex h-[350px] w-[600px] gap-8">
         {wishlistItems.map((item) => {
           const { id, name, img, price, review } = item;
           return (
