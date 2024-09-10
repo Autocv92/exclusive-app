@@ -1,4 +1,4 @@
-import OurProductsList from "./OurProductsList.jsx";
+import { OurProductsList } from "./OurProductsList.jsx";
 
 export function OurProducts() {
   return (

@@ -22,7 +22,7 @@ function Wishlist() {
           <div>Wishlist (4)</div>
           <button className="rounded border px-12 py-4">Move All To Bag</button>
         </div>
-        <div className="mt-16 flex gap-[30px]">
+        <div className="mt-16 flex gap-8">
           <WishlistItems wishlistItems={wishlistItems} />
         </div>
       </div>

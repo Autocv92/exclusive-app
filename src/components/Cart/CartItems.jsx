@@ -5,7 +5,7 @@ import { useCart } from "../../context/cartContext";
 
 export function CartItems() {
   const { cart, deleteHandler } = useCart();
-  console.log(length.cart);
+  console.log(cart);
   const navigate = useNavigate();
   return (
     <div className="flex h-[full] w-[1000px]">

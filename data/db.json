@@ -67,27 +67,43 @@
       "rating": 5
     }
   ],
-  "cart": [],
-  "wishlist": [
+  "cart": [
     {
-      "id": "2",
-      "name": "CANON EOS DSLR Camera",
-      "img": "product10.png"
-    },
-    {
-      "id": "2",
-      "name": "CANON EOS DSLR Camera",
-      "img": "product10.png"
-    },
-    {
-      "id": "3",
-      "name": "ASUS FHD Gaming Laptop",
-      "img": "product11.png"
+      "id": "4",
+      "name": "Curology Product Set",
+      "img": "product12.png"
     },
     {
       "id": "4",
       "name": "Curology Product Set",
       "img": "product12.png"
+    },
+    {
+      "id": "5",
+      "name": "Kids Electric Car",
+      "img": "product13.png"
+    },
+    {
+      "id": "4",
+      "name": "Curology Product Set",
+      "img": "product12.png"
+    }
+  ],
+  "wishlist": [
+    {
+      "id": "8",
+      "name": "Quilted Satin Jacket",
+      "img": "product12.png"
+    },
+    {
+      "id": "7",
+      "name": "GP11 Shooter USB Gamepad",
+      "img": "product15.png"
+    },
+    {
+      "id": "7",
+      "name": "GP11 Shooter USB Gamepad",
+      "img": "product15.png"
     }
   ],
   "fleshsale": [
