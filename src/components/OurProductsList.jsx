@@ -2,7 +2,7 @@
 
 import { Link } from "react-router-dom";
 import { useProducts } from "../context/ProductsContext";
-import { useCart } from "../context/cartContext";
+import { useCart } from "../context/CartContext";
 /* eslint-disable react/prop-types */
 export function OurProductsList() {
   //  Step 3 . Consume the values

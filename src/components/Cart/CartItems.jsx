@@ -1,11 +1,10 @@
 /* eslint-disable react/prop-types */
 
 import { useNavigate } from "react-router-dom";
-import { useCart } from "../../context/cartContext";
+import { useCart } from "../../context/CartContext";
 
 export function CartItems() {
-  const { cart, deleteHandler, incrementHandler, decrementHandler, quantity } =
-    useCart();
+  const { cart, deleteHandler, incrementHandler, decrementHandler } = useCart();
 
   const navigate = useNavigate();
   return (
@@ -16,9 +15,9 @@ export function CartItems() {
           <span>Enter Delivery PinCode</span>
         </div>
         <div className="flex max-h-[1000px] w-[700px] flex-col items-center justify-center">
-          <div className="flex flex-col gap-0">
+          <div className="flex flex-col gap-0" key={cart.id}>
             {cart.map((item) => {
-              const { id, name, img, price } = item;
+              const { id, name, img, price, quantity } = item;
               return (
                 <div id="sale-product" key={id} className="w-[700px]">
                   <div className="border bg-white">
@@ -41,7 +40,7 @@ export function CartItems() {
                       <div className="flex gap-4">
                         <button
                           className="h-[24px] w-[24px] rounded-md bg-slate-400"
-                          onClick={() => decrementHandler()}
+                          onClick={() => decrementHandler(id)}
                         >
                           -
                         </button>
@@ -50,7 +49,7 @@ export function CartItems() {
                         </div>
                         <button
                           className="h-[24px] w-[24px] rounded-md bg-slate-400"
-                          onClick={() => incrementHandler()}
+                          onClick={() => incrementHandler(id)}
                         >
                           +
                         </button>

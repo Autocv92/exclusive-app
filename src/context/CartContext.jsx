@@ -29,6 +29,7 @@ function CartProvider({ children }) {
       name: name,
       img: img,
       price: price,
+      quantity: 1,
     };
 
     try {
@@ -51,14 +52,53 @@ function CartProvider({ children }) {
     }
   }
 
-  function incrementHandler() {
-    console.log("click");
+  //
 
-    quantity < quantity + 1 ? setQuantity(quantity + 1) : setQuantity(0);
+  function incrementHandler(id) {
+    const isItemInCart = cart.find((cartItem) => cartItem.id === id); // check if the item is already in the cart
+
+    if (isItemInCart) {
+      setCart(
+        cart.map(
+          (
+            cartItem, // if the item is already in the cart, increase the quantity of the item
+          ) =>
+            cartItem.id === id
+              ? { ...cartItem, quantity: cartItem.quantity + 1 }
+              : cartItem, // otherwise, return the cart item
+          // console.log(cart),
+        ),
+      );
+    } else {
+      // setCart([...cart, { ...item, quantity: 1 }]); // if the item is not in the cart, add the item to the cart
+    }
   }
 
-  function decrementHandler() {
-    quantity > 1 ? setQuantity(quantity - 1) : setQuantity(0);
+  // ////////
+
+  function decrementHandler(id) {
+    const isItemInCart = cart.find((cartItem) => cartItem.id === id); // check if the item is already in the cart
+
+    if (isItemInCart) {
+      const newCartData = cart.map(
+        (
+          cartItem, // if the item is already in the cart, increase the quantity of the item
+        ) =>
+          cartItem.id === id
+            ? {
+                ...cartItem,
+                quantity:
+                  cartItem.quantity > 1
+                    ? cartItem.quantity - 1
+                    : cartItem.quantity,
+              }
+            : cartItem, // otherwise, return the cart item
+        // console.log(cart),
+      );
+      setCart(newCartData);
+    } else {
+      // setCart([...cart, { ...item, quantity: 1 }]); // if the item is not in the cart, add the item to the cart
+    }
   }
 
   return (

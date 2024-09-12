@@ -72,13 +72,15 @@
       "id": "1",
       "name": "Breed Dry Dog Food",
       "img": "product9.jfif",
-      "price": 100
+      "price": 100,
+      "quantity": 1
     },
     {
-      "id": "7",
-      "name": "GP11 Shooter USB Gamepad",
-      "img": "product15.png",
-      "price": 660
+      "id": "2",
+      "name": "CANON EOS DSLR Camera",
+      "img": "product10.png",
+      "price": 360,
+      "quantity": 1
     }
   ],
   "fleshsale": [
