@@ -4,8 +4,9 @@ import { useNavigate } from "react-router-dom";
 import { useCart } from "../../context/cartContext";
 
 export function CartItems() {
-  const { cart, deleteHandler } = useCart();
-  console.log(cart);
+  const { cart, deleteHandler, incrementHandler, decrementHandler, quantity } =
+    useCart();
+
   const navigate = useNavigate();
   return (
     <div className="flex h-[full] w-[1000px]">
@@ -18,7 +19,6 @@ export function CartItems() {
           <div className="flex flex-col gap-0">
             {cart.map((item) => {
               const { id, name, img, price } = item;
-
               return (
                 <div id="sale-product" key={id} className="w-[700px]">
                   <div className="border bg-white">
@@ -30,7 +30,8 @@ export function CartItems() {
                       />
                       <div>
                         <span>{name}</span>
-                        <span>${price}</span>
+                        <br></br>
+                        <span>${price * quantity}</span>
                       </div>
                       <div>
                         <h2>Delivery By Saturday Aug 31 | Free</h2>
@@ -38,14 +39,19 @@ export function CartItems() {
                     </div>
                     <div className="flex items-center justify-around">
                       <div className="flex gap-4">
-                        <button className="h-[24px] w-[24px] rounded-md bg-slate-400">
+                        <button
+                          className="h-[24px] w-[24px] rounded-md bg-slate-400"
+                          onClick={() => decrementHandler()}
+                        >
                           -
                         </button>
-                        <input
-                          type="text"
-                          className="h-[24px] w-[24px] bg-slate-300"
-                        />
-                        <button className="h-[24px] w-[24px] rounded-md bg-slate-400">
+                        <div className="h-[24px] w-[24px] bg-slate-300">
+                          {quantity}
+                        </div>
+                        <button
+                          className="h-[24px] w-[24px] rounded-md bg-slate-400"
+                          onClick={() => incrementHandler()}
+                        >
                           +
                         </button>
                       </div>

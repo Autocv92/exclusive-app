@@ -71,27 +71,14 @@
     {
       "id": "1",
       "name": "Breed Dry Dog Food",
-      "img": "product9.jfif"
+      "img": "product9.jfif",
+      "price": 100
     },
     {
-      "id": "1",
-      "name": "Breed Dry Dog Food",
-      "img": "product9.jfif"
-    },
-    {
-      "id": "1",
-      "name": "Breed Dry Dog Food",
-      "img": "product9.jfif"
-    },
-    {
-      "id": "1",
-      "name": "Breed Dry Dog Food",
-      "img": "product9.jfif"
-    },
-    {
-      "id": "1",
-      "name": "Breed Dry Dog Food",
-      "img": "product9.jfif"
+      "id": "7",
+      "name": "GP11 Shooter USB Gamepad",
+      "img": "product15.png",
+      "price": 660
     }
   ],
   "fleshsale": [
