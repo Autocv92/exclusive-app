@@ -14,6 +14,7 @@ export function OurProductsList() {
     <div className="flex flex-wrap gap-8">
       {products.map((product) => {
         const { id, name, img, price, isNewProduct, review } = product;
+        console.log(products);
         return (
           <div className="flex" key={id}>
             <div>

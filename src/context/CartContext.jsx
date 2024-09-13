@@ -8,7 +8,8 @@ const CartContext = createContext();
 function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState();
+  console.log(cart);
 
   useEffect(function () {
     async function cartItems() {
@@ -31,7 +32,7 @@ function CartProvider({ children }) {
       price: price,
       quantity: 1,
     };
-
+    console.log(payload);
     try {
       const res = await axios.post("http://localhost:3000/cart", payload);
       if (res.status === 201) {
@@ -64,38 +65,40 @@ function CartProvider({ children }) {
             cartItem, // if the item is already in the cart, increase the quantity of the item
           ) =>
             cartItem.id === id
-              ? { ...cartItem, quantity: cartItem.quantity + 1 }
+              ? {
+                  ...cartItem,
+                  quantity: cartItem.quantity + 1,
+                }
               : cartItem, // otherwise, return the cart item
-          // console.log(cart),
+          console.log(cart),
         ),
       );
     } else {
-      // setCart([...cart, { ...item, quantity: 1 }]); // if the item is not in the cart, add the item to the cart
+      // setCart([...cart, { ...cartItem, quantity: 1 }]); // if the item is not in the cart, add the item to the cart
     }
   }
 
-  // ////////
+  // //////// Decrement function //////
 
   function decrementHandler(id) {
     const isItemInCart = cart.find((cartItem) => cartItem.id === id); // check if the item is already in the cart
 
     if (isItemInCart) {
-      const newCartData = cart.map(
-        (
-          cartItem, // if the item is already in the cart, increase the quantity of the item
-        ) =>
-          cartItem.id === id
-            ? {
-                ...cartItem,
-                quantity:
-                  cartItem.quantity > 1
-                    ? cartItem.quantity - 1
-                    : cartItem.quantity,
-              }
-            : cartItem, // otherwise, return the cart item
-        // console.log(cart),
+      setCart(
+        cart.map(
+          (
+            cartItem, // if the item is already in the cart, increase the quantity of the item
+          ) =>
+            cartItem.id === id
+              ? {
+                  ...cartItem,
+                  quantity:
+                    cartItem.quantity - (cartItem.quantity >= 1 ? 1 : 0),
+                }
+              : cartItem, // otherwise, return the cart item
+          // console.log(cart),
+        ),
       );
-      setCart(newCartData);
     } else {
       // setCart([...cart, { ...item, quantity: 1 }]); // if the item is not in the cart, add the item to the cart
     }
