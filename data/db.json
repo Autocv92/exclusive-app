@@ -84,17 +84,17 @@
       "quantity": 1
     },
     {
-      "id": "3",
-      "name": "ASUS FHD Gaming Laptop",
-      "img": "product11.png",
-      "price": 700,
-      "quantity": 1
-    },
-    {
       "id": "4",
       "name": "Curology Product Set",
       "img": "product12.png",
       "price": 500,
+      "quantity": 1
+    },
+    {
+      "id": "5",
+      "name": "Kids Electric Car",
+      "img": "product13.png",
+      "price": 700,
       "quantity": 1
     }
   ],

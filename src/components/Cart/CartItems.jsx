@@ -4,18 +4,24 @@ import { useNavigate } from "react-router-dom";
 import { useCart } from "../../context/CartContext";
 
 export function CartItems() {
-  const { cart, deleteHandler, incrementHandler, decrementHandler, quantity } =
-    useCart();
-  console.log(quantity);
-  console.log(cart);
+  const { cart, deleteHandler, incrementHandler, decrementHandler } = useCart();
+
+  console.log(cart.quantity);
 
   const navigate = useNavigate();
   const totalCartPrice = cart.reduce(function (total, curr) {
     return total + curr.price;
   }, 0);
 
-  // const a = cart.map((cartPrice) => console.log(cartPrice.price));
-  // console.log(a);
+  const totalDiscount = (totalCartPrice / 100) * 10;
+
+  const a = cart.find((cartPrice) => cartPrice.quantity);
+
+  const totalPrice = cart.reduce(
+    (total, item) => total + item.price * item.quantity,
+    0,
+  );
+  console.log(totalPrice);
 
   return (
     <div className="flex h-[full] w-[1000px]">
@@ -102,7 +108,7 @@ export function CartItems() {
                 Price {cart.length}({cart.length > 1 ? "items" : "item"})
               </span>
 
-              <span>{totalCartPrice}</span>
+              <span>{totalPrice}</span>
             </div>
 
             <div className="flex h-[50px] w-[300] items-center justify-around">
@@ -115,7 +121,7 @@ export function CartItems() {
             </div>
             <div className="flex h-[50px] w-[300] items-center justify-around border-b-2 border-t-2 font-bold">
               <span>Total Amount</span>
-              <span>{totalCartPrice - 20}</span>
+              <span>{totalCartPrice - totalDiscount}</span>
             </div>
             <div className="flex h-[50px] w-[300] items-center justify-around">
               <span className="text-[18px] font-bold text-green-400">

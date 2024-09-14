@@ -9,7 +9,6 @@ function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [quantity, setQuantity] = useState();
-  console.log(cart);
 
   useEffect(function () {
     async function cartItems() {
