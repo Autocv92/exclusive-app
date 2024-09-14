@@ -45,7 +45,7 @@ const router = createBrowserRouter([
         element: <Singup />,
       },
       {
-        path: "login",
+        path: "productdetails",
         element: <ProductDetails />,
       },
       {

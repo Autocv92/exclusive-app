@@ -23,12 +23,13 @@ function CartProvider({ children }) {
 
   //  Add OurProductsList items in Cart Items
 
-  async function addCartItemsHandler(selectId, name, img, price) {
+  async function addCartItemsHandler(selectId, name, img, price, discount) {
     const payload = {
       id: selectId,
       name: name,
       img: img,
       price: price,
+      discount: discount,
       quantity: 1,
     };
     console.log(payload);
@@ -41,9 +42,11 @@ function CartProvider({ children }) {
       console.log(error);
     }
   }
-  //  Detete Cart items
 
+  //
   async function deleteHandler(id) {
+    alert("Are you want to delete item");
+
     const res = await axios.delete(`http://localhost:3000/cart/${id}`);
     if (res.status === 200) {
       const newCartItems = cart.filter((items) => items.id !== id);
@@ -51,6 +54,8 @@ function CartProvider({ children }) {
       setCart(newCartItems);
     }
   }
+
+  //
 
   //
 

@@ -15,13 +15,12 @@ export function CartItems() {
 
   const totalDiscount = (totalCartPrice / 100) * 10;
 
-  const a = cart.find((cartPrice) => cartPrice.quantity);
+  // const a = cart.find((cartPrice) => cartPrice.quantity);
 
   const totalPrice = cart.reduce(
     (total, item) => total + item.price * item.quantity,
     0,
   );
-  console.log(totalPrice);
 
   return (
     <div className="flex h-[full] w-[1000px]">
@@ -32,13 +31,14 @@ export function CartItems() {
         </div>
         <div className="flex max-h-[1000px] w-[700px] flex-col items-center justify-center">
           <div className="flex flex-col gap-0" key={cart.id}>
-            {cart.map((item) => {
+            {cart.map((item, index) => {
               const { id, name, img, price, quantity } = item;
               return (
-                <div id="sale-product" key={id} className="w-[700px]">
+                <div id="sale-product" key={index} className="w-[700px]">
                   <div className="border bg-white">
                     <div className="flex items-center justify-around">
                       <img
+                        to="/productdetails"
                         src={img}
                         alt="cart-product"
                         className="h-[60px] w-[60px] rounded-md"
@@ -86,10 +86,10 @@ export function CartItems() {
         </div>
         <div className="flex h-[100px] w-[700px] items-center justify-around bg-white shadow-md">
           <span
-            className="rounded-lg bg-red-400 p-3"
+            className="rounded-lg bg-[#fb641b] p-3"
             onClick={() => navigate("/order")}
           >
-            {cart.length < 1 ? "Add To Cart" : "Place Order"}
+            {cart.length < 1 ? "Add To Cart" : "Order"}
           </span>
         </div>
       </div>
@@ -98,7 +98,7 @@ export function CartItems() {
 
       {totalCartPrice > 0 ? (
         <div className="mx-[10px] mb-[10px] mt-[10px] flex h-[630px] w-[300px] flex-col">
-          <div className="text-[]18px] flex h-[60px] w-[300px] items-center justify-center border bg-white font-sans shadow-md">
+          <div className="flex h-[60px] w-[300px] items-center justify-center border bg-white font-sans text-[18px] shadow-md">
             <span className="font-display font-bold">PRICE DETAILS</span>
           </div>
 
@@ -113,7 +113,7 @@ export function CartItems() {
 
             <div className="flex h-[50px] w-[300] items-center justify-around">
               <span>Discount</span>
-              <span>${(totalCartPrice / 100) * 10}</span>
+              <span>${(totalPrice / 100) * 10}</span>
             </div>
             <div className="flex h-[50px] w-[300] items-center justify-around">
               <span>Delivery Charges</span>
@@ -125,7 +125,7 @@ export function CartItems() {
             </div>
             <div className="flex h-[50px] w-[300] items-center justify-around">
               <span className="text-[18px] font-bold text-green-400">
-                You Will save $345 on this order{" "}
+                You Will save $345 on this order
               </span>
             </div>
           </div>
