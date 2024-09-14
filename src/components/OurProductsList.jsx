@@ -2,7 +2,7 @@
 
 import { Link } from "react-router-dom";
 import { useProducts } from "../context/ProductsContext";
-import { useCart } from "../context/cartContext";
+import { useCart } from "../context/CartContext";
 /* eslint-disable react/prop-types */
 export function OurProductsList() {
   //  Step 3 . Consume the values
@@ -13,10 +13,12 @@ export function OurProductsList() {
   return (
     <div className="flex flex-wrap gap-8">
       {products.map((product) => {
-        const { id, name, img, price, isNewProduct, review } = product;
+        const { id, name, img, price, isNewProduct, review, discount } =
+          product;
+
         return (
           <div className="flex" key={id}>
-            <div>
+            <div className="hover:-translate-y-1 hover:scale-110">
               <div
                 id="product-img"
                 className="relative flex h-[250px] flex-col items-center justify-center bg-neutral-100"
@@ -34,7 +36,9 @@ export function OurProductsList() {
                 <div className="">
                   <button
                     className="w-[175px] bg-black p-2 font-semibold text-white"
-                    onClick={() => addCartItemsHandler(id, name, img, price)}
+                    onClick={() =>
+                      addCartItemsHandler(id, name, img, price, discount)
+                    }
                   >
                     Add To Cart
                   </button>

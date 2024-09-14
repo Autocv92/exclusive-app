@@ -75,7 +75,7 @@ function ProductsProvider({ children }) {
 }
 function useProducts() {
   const context = useContext(ProductsContext);
-  console.log(context);
+
   if (context === undefined) {
     throw new Error("ourproduct context was used in outside of context");
   }

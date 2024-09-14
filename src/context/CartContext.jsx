@@ -8,7 +8,7 @@ const CartContext = createContext();
 function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState();
 
   useEffect(function () {
     async function cartItems() {
@@ -23,14 +23,16 @@ function CartProvider({ children }) {
 
   //  Add OurProductsList items in Cart Items
 
-  async function addCartItemsHandler(selectId, name, img, price) {
+  async function addCartItemsHandler(selectId, name, img, price, discount) {
     const payload = {
       id: selectId,
       name: name,
       img: img,
       price: price,
+      discount: discount,
+      quantity: 1,
     };
-
+    console.log(payload);
     try {
       const res = await axios.post("http://localhost:3000/cart", payload);
       if (res.status === 201) {
@@ -40,9 +42,11 @@ function CartProvider({ children }) {
       console.log(error);
     }
   }
-  //  Detete Cart items
 
+  //
   async function deleteHandler(id) {
+    alert("Are you want to delete item");
+
     const res = await axios.delete(`http://localhost:3000/cart/${id}`);
     if (res.status === 200) {
       const newCartItems = cart.filter((items) => items.id !== id);
@@ -51,14 +55,57 @@ function CartProvider({ children }) {
     }
   }
 
-  function incrementHandler() {
-    console.log("click");
+  //
 
-    quantity < quantity + 1 ? setQuantity(quantity + 1) : setQuantity(0);
+  //
+
+  function incrementHandler(id) {
+    const isItemInCart = cart.find((cartItem) => cartItem.id === id); // check if the item is already in the cart
+
+    if (isItemInCart) {
+      setCart(
+        cart.map(
+          (
+            cartItem, // if the item is already in the cart, increase the quantity of the item
+          ) =>
+            cartItem.id === id
+              ? {
+                  ...cartItem,
+                  quantity: cartItem.quantity + 1,
+                }
+              : cartItem, // otherwise, return the cart item
+          console.log(cart),
+        ),
+      );
+    } else {
+      // setCart([...cart, { ...cartItem, quantity: 1 }]); // if the item is not in the cart, add the item to the cart
+    }
   }
 
-  function decrementHandler() {
-    quantity > 1 ? setQuantity(quantity - 1) : setQuantity(0);
+  // //////// Decrement function //////
+
+  function decrementHandler(id) {
+    const isItemInCart = cart.find((cartItem) => cartItem.id === id); // check if the item is already in the cart
+
+    if (isItemInCart) {
+      setCart(
+        cart.map(
+          (
+            cartItem, // if the item is already in the cart, increase the quantity of the item
+          ) =>
+            cartItem.id === id
+              ? {
+                  ...cartItem,
+                  quantity:
+                    cartItem.quantity - (cartItem.quantity >= 1 ? 1 : 0),
+                }
+              : cartItem, // otherwise, return the cart item
+          // console.log(cart),
+        ),
+      );
+    } else {
+      // setCart([...cart, { ...item, quantity: 1 }]); // if the item is not in the cart, add the item to the cart
+    }
   }
 
   return (
