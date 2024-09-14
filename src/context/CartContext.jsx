@@ -8,7 +8,7 @@ const CartContext = createContext();
 function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [selectId, setSelectedId] = useState();
+  const [quantity, setQuantity] = useState(0);
 
   useEffect(function () {
     async function cartItems() {
@@ -21,6 +21,27 @@ function CartProvider({ children }) {
     cartItems();
   }, []);
 
+  //  Add OurProductsList items in Cart Items
+
+  async function addCartItemsHandler(selectId, name, img, price) {
+    const payload = {
+      id: selectId,
+      name: name,
+      img: img,
+      price: price,
+    };
+
+    try {
+      const res = await axios.post("http://localhost:3000/cart", payload);
+      if (res.status === 201) {
+        setCart([...cart, res.data]);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  //  Detete Cart items
+
   async function deleteHandler(id) {
     const res = await axios.delete(`http://localhost:3000/cart/${id}`);
     if (res.status === 200) {
@@ -30,6 +51,16 @@ function CartProvider({ children }) {
     }
   }
 
+  function incrementHandler() {
+    console.log("click");
+
+    quantity < quantity + 1 ? setQuantity(quantity + 1) : setQuantity(0);
+  }
+
+  function decrementHandler() {
+    quantity > 1 ? setQuantity(quantity - 1) : setQuantity(0);
+  }
+
   return (
     <CartContext.Provider
       value={{
@@ -37,6 +68,10 @@ function CartProvider({ children }) {
         isLoading,
         deleteHandler,
         setCart,
+        addCartItemsHandler,
+        incrementHandler,
+        decrementHandler,
+        quantity,
       }}
     >
       {children}

@@ -1,12 +1,14 @@
 // import React from 'react'
 
 import { Link } from "react-router-dom";
-import { useOurProducts } from "../context/OurProductsContext";
+import { useProducts } from "../context/ProductsContext";
+import { useCart } from "../context/cartContext";
 /* eslint-disable react/prop-types */
 export function OurProductsList() {
   //  Step 3 . Consume the values
 
-  const { products, addCartItemsHandler, addToWishList } = useOurProducts();
+  const { products, addToWishList } = useProducts();
+  const { addCartItemsHandler } = useCart();
 
   return (
     <div className="flex flex-wrap gap-8">
@@ -32,7 +34,7 @@ export function OurProductsList() {
                 <div className="">
                   <button
                     className="w-[175px] bg-black p-2 font-semibold text-white"
-                    onClick={() => addCartItemsHandler(id, name, img)}
+                    onClick={() => addCartItemsHandler(id, name, img, price)}
                   >
                     Add To Cart
                   </button>

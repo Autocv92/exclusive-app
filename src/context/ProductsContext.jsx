@@ -6,12 +6,12 @@ import { useCart } from "./cartContext";
 
 // Step1 =>  (1) Create Context
 
-const OurProductsContext = createContext();
+const ProductsContext = createContext();
 
 // Step2 =>  Create Provider
 
-function OurProductsProvider({ children }) {
-  const { cart, setCart } = useCart();
+function ProductsProvider({ children }) {
+  const { cart } = useCart();
 
   const [products, setProducts] = useState([]);
   const [error, setError] = useState("");
@@ -25,13 +25,12 @@ function OurProductsProvider({ children }) {
           setIsLoading(true);
           setError("");
           const res = await axios.get("http://localhost:3000/productlists");
-          // const data = await res.json();
           setProducts(res.data);
-          console.log(res.data);
+
           setIsLoading(false);
+
           setError("");
         } catch (err) {
-          console.log(err.message);
           setError(err.message);
         } finally {
           setIsLoading(false);
@@ -42,23 +41,6 @@ function OurProductsProvider({ children }) {
     },
     [selectId],
   );
-
-  async function addCartItemsHandler(selectId, name, img) {
-    const payload = {
-      id: selectId,
-      name: name,
-      img: img,
-    };
-
-    try {
-      const res = await axios.post("http://localhost:3000/cart", payload);
-      if (res.status === 201) {
-        setCart([...cart, res.data]);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  }
 
   const addToWishList = (selectId, name, img) => {
     const payload = {
@@ -77,23 +59,22 @@ function OurProductsProvider({ children }) {
   };
 
   return (
-    <OurProductsContext.Provider
+    <ProductsContext.Provider
       value={{
         isLoading,
         products,
         error,
         addToWishList,
-        addCartItemsHandler,
         cart,
       }}
     >
       {children}
-    </OurProductsContext.Provider>
+    </ProductsContext.Provider>
   );
   // Step1 =>  (2) Use Create Context
 }
-function useOurProducts() {
-  const context = useContext(OurProductsContext);
+function useProducts() {
+  const context = useContext(ProductsContext);
   console.log(context);
   if (context === undefined) {
     throw new Error("ourproduct context was used in outside of context");
@@ -101,4 +82,4 @@ function useOurProducts() {
   return context;
 }
 
-export { OurProductsProvider, useOurProducts };
+export { ProductsProvider, useProducts };
