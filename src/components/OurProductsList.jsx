@@ -28,7 +28,7 @@ export function OurProductsList() {
                     New
                   </div>
                 )}
-                <Link to="/productdetails">
+                <Link to="/laptops">
                   <div className="flex h-[180px] w-[190px] flex-col items-center justify-center">
                     <img src={img} className="h-[152px] w-[172px]" />
                   </div>

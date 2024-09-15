@@ -17,7 +17,11 @@ function ProductsProvider({ children }) {
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [selectId, setSelectedId] = useState();
+  const [laptops, setLaptos] = useState([]);
+  const [isExpanded, setIsExpanded] = useState(false);
+  // const [expandedId, setExpandedId] = useState(null);
 
+  // /////////////////////////////////////////////////////////////////////////////////////////////////
   useEffect(
     function () {
       async function productItems() {
@@ -41,6 +45,38 @@ function ProductsProvider({ children }) {
     },
     [selectId],
   );
+
+  // ///////////////////////////////////////////////////////////////////////////////////
+
+  useEffect(function () {
+    async function laptops() {
+      try {
+        setIsLoading(true);
+        setError("");
+        const res = await axios.get("http://localhost:3000/laptop");
+        setLaptos(res.data);
+
+        setIsLoading(false);
+
+        setError("");
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+
+    laptops();
+  }, []);
+
+  async function onToggle(id) {
+    setIsExpanded(!isExpanded);
+  }
+
+  // const toggleExpanded = (id) => {
+  //   setExpandedId(expandedId === id ? null : id);
+  // };
+  // /////////////////////////////////////////////////////////////////////////
 
   const addToWishList = (selectId, name, img) => {
     const payload = {
@@ -66,6 +102,9 @@ function ProductsProvider({ children }) {
         error,
         addToWishList,
         cart,
+        laptops,
+        isExpanded,
+        onToggle,
       }}
     >
       {children}
@@ -73,6 +112,9 @@ function ProductsProvider({ children }) {
   );
   // Step1 =>  (2) Use Create Context
 }
+
+// ///////////////////////////////////////////////////
+
 function useProducts() {
   const context = useContext(ProductsContext);
 

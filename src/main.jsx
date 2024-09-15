@@ -24,6 +24,7 @@ import { CartProvider } from "./context/cartContext.jsx";
 import React from "react";
 import { ProductDetails } from "./components/ProductDetails.jsx";
 import { ProductsProvider } from "./context/ProductsContext.jsx";
+import { Laptops } from "./components/laptops.jsx";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
       {
         path: "productdetails",
         element: <ProductDetails />,
+      },
+      {
+        path: "laptops",
+        element: <Laptops />,
       },
       {
         path: "login",
